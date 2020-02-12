@@ -1,6 +1,6 @@
 # Todolist
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
+This project treats about a todolist app where user can do CRUD basic operations. Layout was done by using angular material components library, data storage and authentication is supported for firebase service. The app was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.1.
 
 ## Development server
 
