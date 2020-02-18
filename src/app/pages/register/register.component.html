@@ -1,47 +1,44 @@
 <mat-card class="form-user">
     <div class="MuiAvatar-root MuiAvatar-circle jss2 MuiAvatar-colorDefault">
-            <svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root" focusable="false" aria-hidden="true" role="presentation" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 26.16 26" style="enable-background:new 0 0 26.16 26;" xml:space="preserve">
-<g>
-	<path d="M25.11,1.38c-2.23-2.23-4.46-1.3-5.32-0.5c-0.01,0.01-0.02,0.02-0.03,0.03l-0.97,0.97c-0.05,0.03-0.11,0.06-0.15,0.1
+        <svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg" class="MuiSvgIcon-root" focusable="false"
+            aria-hidden="true" role="presentation" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 26.16 26" style="enable-background:new 0 0 26.16 26;" xml:space="preserve">
+            <g>
+                <path d="M25.11,1.38c-2.23-2.23-4.46-1.3-5.32-0.5c-0.01,0.01-0.02,0.02-0.03,0.03l-0.97,0.97c-0.05,0.03-0.11,0.06-0.15,0.1
 		s-0.07,0.1-0.1,0.15l-9.59,9.59c-0.16,0.04-0.31,0.12-0.44,0.24c-0.25,0.25-0.32,0.58-0.26,0.9l-1.31,5.1
 		c-0.09,0.34,0.01,0.71,0.26,0.96c0.19,0.19,0.45,0.29,0.71,0.29c0.08,0,0.17-0.01,0.25-0.03l5.53-1.41
 		c0.17-0.04,0.33-0.13,0.46-0.26L25.22,6.44c0.03-0.03,0.06-0.07,0.09-0.1C26.02,5.4,26.89,3.17,25.11,1.38z M23.69,2.8
 		c0.9,0.9,0.27,1.98,0.06,2.28l-0.31,0.31l-2.67-2.67l0.38-0.38C21.31,2.2,22.32,1.42,23.69,2.8z M13.39,15.45l-2.67-2.67l8.64-8.64
-		l2.67,2.67L13.39,15.45z M9.83,14.72l1.58,1.58l-2.13,0.54L9.83,14.72z"/>
-	<path d="M23.88,15.6c-0.55,0-1,0.45-1,1v6.24c0,0.55-0.2,0.74-0.27,0.81c-0.31,0.3-0.89,0.35-1.09,0.35H3.82
+		l2.67,2.67L13.39,15.45z M9.83,14.72l1.58,1.58l-2.13,0.54L9.83,14.72z" />
+                <path d="M23.88,15.6c-0.55,0-1,0.45-1,1v6.24c0,0.55-0.2,0.74-0.27,0.81c-0.31,0.3-0.89,0.35-1.09,0.35H3.82
 		C2.19,23.96,2,22.98,2,22.55V5.71C2,4.57,3.07,4.4,3.33,4.38h5.8c0.55,0,1-0.45,1-1s-0.45-1-1-1l-5.85,0C1.96,2.45,0,3.4,0,5.71
 		v16.82c-0.02,0.94,0.62,3.39,3.79,3.47l17.7,0c0.02,0,0.05,0,0.09,0c0.35,0,1.55-0.07,2.42-0.9c0.4-0.39,0.89-1.1,0.89-2.26V16.6
-		C24.88,16.05,24.43,15.6,23.88,15.6z"/>
-</g>
+		C24.88,16.05,24.43,15.6,23.88,15.6z" />
+            </g>
         </svg>
     </div>
     <h1 class="MuiTypography-h5">Sign up</h1>
-    <form class="form-container">
+    <form class="form-container" [formGroup]="profileForm" (ngSubmit)="register($event)">
         <mat-form-field appearance="fill" class="firstname">
-            <mat-label>First name</mat-label>
-            <input matInput required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="lastname">
-            <mat-label>Last name</mat-label>
-            <input matInput required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+            <mat-label>Name</mat-label>
+            <input matInput required formControlName="name">
+            <mat-error *ngIf="profileForm.get('name').invalid">{{getErrorMessageName()}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="user@service.com" required>
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+            <input matInput placeholder="user@service.com" required formControlName="email">
+            <mat-error *ngIf="profileForm.get('email').invalid">{{getErrorMessageEmail()}}</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" required>
+            <input matInput [type]="hide ? 'password' : 'text'" required formControlName="pass">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide" type="button">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+            <mat-error *ngIf="profileForm.get('pass').invalid">{{getErrorMessagePassword()}}</mat-error>
         </mat-form-field>
-        <button class="submit" mat-raised-button color="primary">SIGN UP</button>
+        <button class="submit" mat-raised-button color="primary" type="submit">SIGN UP</button>
         <a routerLink="/login" class="form-registerlink">Already have an account? Sign In</a>
     </form>
 </mat-card>

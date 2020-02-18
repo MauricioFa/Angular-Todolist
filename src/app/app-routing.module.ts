@@ -5,15 +5,15 @@ import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
-
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'demo', component: DemoComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'main', component: MainComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: '**', component: NotfoundComponent},
+  { path: '', component: LoginComponent },
+  { path: 'demo', component: DemoComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'main', component: MainComponent, canActivate: [AdminGuard]},
+  { path: 'register', component: RegisterComponent },
+  { path: '**', component: NotfoundComponent },
 ];
 
 @NgModule({

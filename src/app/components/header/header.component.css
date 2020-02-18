@@ -33,3 +33,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.mat-button-base{
+    margin-left: 10px;
+}
+
+.account{
+    margin-right: 10px;
+}

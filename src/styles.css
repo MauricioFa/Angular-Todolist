@@ -18,14 +18,12 @@ p {
     margin: 0;
 }
 
-mat-card.form-user{
-    max-width: 444px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 64px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.userName{
+    padding: 16px;
+}
+
+body{
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
 .MuiAvatar-colorDefault {
@@ -103,4 +101,55 @@ mat-form-field, .submit{
 
 .form-registerlink{
     margin: 20px;
+}
+
+.mat-form-field-subscript-wrapper{
+    margin-top: 5px;
+}
+
+.mat-snack-bar-container {
+    background-color: rgb(204, 53, 108);
+    color: white;
+    box-shadow: 0px 3px 5px -1px rgba(204, 118, 118, 0.2), 0px 6px 10px 0px rgba(204, 118, 118, 0.14), 0px 1px 18px 0px rgba(204, 118, 118, 0.12)
+}
+.mat-simple-snackbar-action> .mat-button-base> .mat-button-wrapper{
+    color: rgb(255, 159, 194)
+}
+
+mat-card.form-user{
+    max-width: 444px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 64px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+mat-card.tasks, .tasks{
+    max-width: 80%;
+    margin-top: 20px;
+}
+
+.filter, .mat-elevation-z8, .mat-table.cdk-table{
+    width: 100%;
+}
+
+.headerTable{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+
+}
+/* .headerTable>:nth-child(1), .headerTable>:nth-child(3){
+    flex-grow: 1;
+}
+
+.headerTable>:nth-child(2){
+    width: auto;
+    flex-grow: 8;
+} */
+.spacerfilter{
+    flex: 1;
 }
