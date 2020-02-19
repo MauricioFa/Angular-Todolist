@@ -22,7 +22,7 @@
         <mat-form-field appearance="fill" class="firstname">
             <mat-label>Name</mat-label>
             <input matInput required formControlName="name">
-            <mat-error *ngIf="profileForm.get('name').invalid">{{getErrorMessageName()}}</mat-error>
+            <mat-error *ngIf="profileForm.get('name').invalid">'You must enter a value'</mat-error>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
@@ -36,7 +36,7 @@
                 [attr.aria-pressed]="hide" type="button">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <mat-error *ngIf="profileForm.get('pass').invalid">{{getErrorMessagePassword()}}</mat-error>
+            <mat-error *ngIf="profileForm.get('pass').invalid">'You must enter a value'</mat-error>
         </mat-form-field>
         <button class="submit" mat-raised-button color="primary" type="submit">SIGN UP</button>
         <a routerLink="/login" class="form-registerlink">Already have an account? Sign In</a>

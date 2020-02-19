@@ -3,6 +3,8 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } fro
 import { Observable } from 'rxjs';
 import { AuthService } from './core/services/auth.service';
 import { map, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 
 
 @Injectable({
@@ -11,7 +13,8 @@ import { map, tap } from 'rxjs/operators';
 export class AdminGuard implements CanActivate {
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
 
   }
@@ -20,8 +23,13 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.authService.hasUser().pipe(
-      // tap(user => console.log(user)),
-      map(user => user === null ? false : true)
+      map(user => user === null ? false : true),
+      tap((isUser) => {
+        console.log(isUser)
+        if (!isUser) {
+          this.router.navigate(['./login']); // if there´s another route to destiny, must be created a new guard
+        }
+      })
     );
   }
 

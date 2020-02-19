@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { MyValidators } from 'src/app/utils/validators';
 
 @Component({
   selector: 'app-register',
@@ -22,7 +23,8 @@ export class RegisterComponent implements OnInit {
       name: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
       pass: new FormControl(''),
-    });
+      }
+    );
   }
   // snackbar if rejected register
   openSnackBar(message: string, action: string) {
@@ -32,21 +34,21 @@ export class RegisterComponent implements OnInit {
   }
 
   // Validator messages
-  getErrorMessageName() {
-    if (this.profileForm.get('name').hasError('required')) {
-      return 'You must enter a value';
-    }
-  }
+  // getErrorMessageName() {
+  //   if (this.profileForm.get('name').hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
+  // }
   getErrorMessageEmail() {
     return this.profileForm.get('email').hasError('required') ? 'You must enter a value' :
       this.profileForm.get('email').hasError('email') ? 'Not a valid email' :
         '';
   }
-  getErrorMessagePassword() {
-    if (this.profileForm.get('pass').hasError('required')) {
-      return 'You must enter a value';
-    }
-  }
+  // getErrorMessagePassword() {
+  //   if (this.profileForm.get('pass').hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
+  // }
 
   // register firebase
   register(event: Event) {

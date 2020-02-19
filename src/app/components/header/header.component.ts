@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Params } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { map, tap } from 'rxjs/operators';
 import { empty } from 'rxjs';
@@ -15,8 +15,8 @@ export class HeaderComponent implements OnInit {
     private auth: AuthService) {
   }
 
-  get getrouter(): Router {
-    return this.router;
+  get url(): string {
+    return this.router.url;
   }
 
   ngOnInit(): void {
