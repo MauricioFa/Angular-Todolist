@@ -3,7 +3,6 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
-import { MyValidators } from 'src/app/utils/validators';
 
 @Component({
   selector: 'app-register',
